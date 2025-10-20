@@ -101,6 +101,14 @@ file delete:
 file open folder: user.vscode("revealFileInOS")
 file reveal: user.vscode("workbench.files.action.showActiveFileInExplorer")
 
+file base (sixty four | six four) decode:
+    user.vscode("editor.action.selectAll")
+    user.vscode("extension.base64Decode")
+
+file base (sixty four | six four) encode:
+    user.vscode("editor.action.selectAll")
+    user.vscode("extension.base64Encode")
+
 file copy content:
     user.vscode("editor.action.selectAll")
     user.vscode("editor.action.clipboardCopyAction")
