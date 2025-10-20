@@ -115,6 +115,8 @@ file copy content:
 
 save ugly: user.vscode("workbench.action.files.saveWithoutFormatting")
 
+preview markdown: user.vscode("markdown.showPreview")
+
 # Language Features
 suggest show: user.vscode("editor.action.triggerSuggest")
 hint show: user.vscode("editor.action.triggerParameterHints")
