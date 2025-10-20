@@ -54,6 +54,12 @@ cut that: edit.cut()
 
 # Paste
 donk: edit.paste()
+snatch:
+    edit.select_all()
+    edit.cut()
+
+swarm: key(cmd-d)
+
 (pace | paste) (that | it): edit.paste()
 (pace | paste) enter:
     edit.paste()
