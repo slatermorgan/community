@@ -1,5 +1,8 @@
 os: mac
 app: Linear
 -
-please: key("cmd-k")
+^please [<user.text>]$: key("cmd-k")
+    sleep(300ms)
+    insert(user.text)
+    
 copy branch name: key("cmd-shift-.")
