@@ -310,7 +310,8 @@ preview markdown: user.vscode("markdown.showPreview")
 dont save: key(cmd-d)
 
 # Cursor
-bar assist:user.vscode("composer.focusComposer")
+assist close: user.vscode("composer.closeComposerTab")
+bar assist: user.vscode("workbench.panel.aichat.3705ffb5-a408-4d5d-9ca8-34592fe29549")
 
 assist new: user.vscode("composer.newAgentChat")
 assist again: user.vscode("composer.startComposerPrompt")
