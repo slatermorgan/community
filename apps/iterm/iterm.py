@@ -26,3 +26,8 @@ class UserActions:
     def terminal_clear_screen():
         """Clear screen"""
         actions.key("ctrl-l")
+
+    # NOTE: THIS DOES NEED TO BE SET IN iTerm2's keybinds
+    def tab_duplicate():
+        """duplicate the current tab"""
+        actions.key("ctrl-cmd-shift-d")
