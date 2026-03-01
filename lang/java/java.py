@@ -1,4 +1,11 @@
+from contextlib import suppress
+from enum import Enum, auto
+from typing import Union
+
 from talon import Context, Module, actions, settings
+
+from ...core.described_functions import create_described_insert_between
+from ..tags.operators import Operators
 
 ctx = Context()
 mod = Module()
@@ -87,101 +94,165 @@ java_modifiers = {
 mod.list("java_modifier", desc="Java Modifiers")
 ctx.lists["self.java_modifier"] = java_modifiers
 
+operators = Operators(
+    # code_operators_array
+    SUBSCRIPT=create_described_insert_between("[", "]"),
+    # code_operators_assignment
+    ASSIGNMENT=" = ",
+    ASSIGNMENT_SUBTRACTION=" -= ",
+    ASSIGNMENT_ADDITION=" += ",
+    ASSIGNMENT_MULTIPLICATION=" *= ",
+    ASSIGNMENT_DIVISION=" /= ",
+    ASSIGNMENT_MODULO=" %= ",
+    ASSIGNMENT_INCREMENT="++",
+    ASSIGNMENT_BITWISE_AND=" &= ",
+    ASSIGNMENT_BITWISE_LEFT_SHIFT=" <<= ",
+    ASSIGNMENT_BITWISE_RIGHT_SHIFT=" >>= ",
+    # code_operators_bitwise
+    BITWISE_AND=" & ",
+    BITWISE_OR=" | ",
+    BITWISE_EXCLUSIVE_OR=" ^ ",
+    BITWISE_LEFT_SHIFT=" << ",
+    BITWISE_RIGHT_SHIFT=" >> ",
+    # code_operators_lambda
+    LAMBDA=" -> ",
+    # code_operators_math
+    MATH_SUBTRACT=" - ",
+    MATH_ADD=" + ",
+    MATH_MULTIPLY=" * ",
+    MATH_DIVIDE=" / ",
+    MATH_MODULO=" % ",
+    MATH_EXPONENT=" ^ ",
+    MATH_EQUAL=" == ",
+    MATH_NOT_EQUAL=" != ",
+    MATH_GREATER_THAN=" > ",
+    MATH_GREATER_THAN_OR_EQUAL=" >= ",
+    MATH_LESS_THAN=" < ",
+    MATH_LESS_THAN_OR_EQUAL=" <= ",
+    MATH_AND=" && ",
+    MATH_OR=" || ",
+    MATH_NOT="!",
+)
+
+
+def public_camel_case_format_variable(variable: str):
+    return actions.user.formatted_text(variable, "PUBLIC_CAMEL_CASE")
+
+
+# This is not part of the long term stable API
+# After we implement generics support for several languages,
+# we plan on abstracting out from the specific implementations into a general grammar
+
+
+@mod.capture(rule="{user.java_boxed_type} | <user.text>")
+def java_type_parameter_argument(m) -> str:
+    """A Java type parameter for a generic data structure"""
+    with suppress(AttributeError):
+        return m.java_boxed_type
+    return public_camel_case_format_variable(m.text)
+
+
+@mod.capture(rule="[type] {user.java_generic_data_structure} | type <user.text>")
+def java_generic_data_structure(m) -> str:
+    """A Java generic data structure that takes type parameter arguments"""
+    with suppress(AttributeError):
+        return m.java_generic_data_structure
+    return public_camel_case_format_variable(m.text)
+
+
+class GenericTypeConnector(Enum):
+    AND = auto()
+    OF = auto()
+    DONE = auto()
+
+
+@mod.capture(rule="done")
+def java_generic_type_connector_done(m) -> GenericTypeConnector:
+    """Denotes ending a nested generic type"""
+    return GenericTypeConnector.DONE
+
+
+@mod.capture(rule="and|of|<user.java_generic_type_connector_done>")
+def java_generic_type_connector(m) -> GenericTypeConnector:
+    """Determines how to put generic type parameters together"""
+    with suppress(AttributeError):
+        return m.java_generic_type_connector_done
+    return GenericTypeConnector[m[0].upper()]
+
+
+@mod.capture(
+    rule="<user.java_generic_type_connector> <user.java_type_parameter_argument> [<user.java_generic_type_connector_done>]+"
+)
+def java_generic_type_continuation(m) -> list[Union[GenericTypeConnector, str]]:
+    """A generic type parameter that goes after the first using connectors"""
+    result = [m.java_generic_type_connector, m.java_type_parameter_argument]
+    with suppress(AttributeError):
+        dones = m.java_generic_type_connector_done_list
+        result.extend(dones)
+    return result
+
+
+@mod.capture(rule="<user.java_generic_type_continuation>+")
+def java_generic_type_additional_type_parameters(
+    m,
+) -> list[Union[GenericTypeConnector, str]]:
+    """Type parameters for a generic data structure after the first one"""
+    result = []
+    for continuation in m.java_generic_type_continuation_list:
+        result.extend(continuation)
+    return result
+
+
+def is_immediately_after_nesting_exit(pieces: list[str]) -> bool:
+    return len(pieces) >= 1 and pieces[-1] == ">"
+
+
+@mod.capture(
+    rule="<user.java_type_parameter_argument> [<user.java_generic_type_additional_type_parameters>]"
+)
+def java_type_parameter_arguments(m) -> str:
+    """Formatted Java type parameter arguments"""
+    parameters = [m.java_type_parameter_argument]
+    with suppress(AttributeError):
+        parameters.extend(m.java_generic_type_additional_type_parameters)
+    pieces = []
+    nesting: int = 0
+    for parameter in parameters:
+        if isinstance(parameter, str):
+            if is_immediately_after_nesting_exit(pieces):
+                pieces.append(", ")
+            pieces.append(parameter)
+        else:
+            match parameter:
+                case GenericTypeConnector.AND:
+                    pieces.append(", ")
+                case GenericTypeConnector.OF:
+                    pieces.append("<")
+                    nesting += 1
+                case GenericTypeConnector.DONE:
+                    pieces.append(">")
+                    nesting -= 1
+    if nesting > 0:
+        pieces.append(">" * nesting)
+    return "".join(pieces)
+
+
+@mod.capture(
+    rule="<user.java_generic_data_structure> of <user.java_type_parameter_arguments>"
+)
+def java_generic_type(m) -> str:
+    """A generic type with specific type parameters"""
+    parameters = m.java_type_parameter_arguments
+    return f"{m.java_generic_data_structure}<{parameters}>"
+
+
+# End of unstable section
+
 
 @ctx.action_class("user")
 class UserActions:
-    def code_operator_lambda():
-        actions.insert(" -> ")
-
-    def code_operator_subscript():
-        actions.user.insert_between("[", "]")
-
-    def code_operator_assignment():
-        actions.insert(" = ")
-
-    def code_operator_subtraction():
-        actions.insert(" - ")
-
-    def code_operator_subtraction_assignment():
-        actions.insert(" -= ")
-
-    def code_operator_addition():
-        actions.insert(" + ")
-
-    def code_operator_addition_assignment():
-        actions.insert(" += ")
-
-    def code_operator_multiplication():
-        actions.insert(" * ")
-
-    def code_operator_multiplication_assignment():
-        actions.insert(" *= ")
-
-    def code_operator_exponent():
-        actions.insert(" ^ ")
-
-    def code_operator_division():
-        actions.insert(" / ")
-
-    def code_operator_division_assignment():
-        actions.insert(" /= ")
-
-    def code_operator_modulo():
-        actions.insert(" % ")
-
-    def code_operator_modulo_assignment():
-        actions.insert(" %= ")
-
-    def code_operator_equal():
-        actions.insert(" == ")
-
-    def code_operator_not_equal():
-        actions.insert(" != ")
-
-    def code_operator_greater_than():
-        actions.insert(" > ")
-
-    def code_operator_greater_than_or_equal_to():
-        actions.insert(" >= ")
-
-    def code_operator_less_than():
-        actions.insert(" < ")
-
-    def code_operator_less_than_or_equal_to():
-        actions.insert(" <= ")
-
-    def code_operator_and():
-        actions.insert(" && ")
-
-    def code_operator_or():
-        actions.insert(" || ")
-
-    def code_operator_bitwise_and():
-        actions.insert(" & ")
-
-    def code_operator_bitwise_and_assignment():
-        actions.insert(" &= ")
-
-    def code_operator_increment():
-        actions.insert("++")
-
-    def code_operator_bitwise_or():
-        actions.insert(" | ")
-
-    def code_operator_bitwise_exclusive_or():
-        actions.insert(" ^ ")
-
-    def code_operator_bitwise_left_shift():
-        actions.insert(" << ")
-
-    def code_operator_bitwise_left_shift_assignment():
-        actions.insert(" <<= ")
-
-    def code_operator_bitwise_right_shift():
-        actions.insert(" >> ")
-
-    def code_operator_bitwise_right_shift_assignment():
-        actions.insert(" >>= ")
+    def code_get_operators() -> Operators:
+        return operators
 
     def code_self():
         actions.insert("this")
@@ -198,52 +269,11 @@ class UserActions:
     def code_insert_is_not_null():
         actions.insert(" != null")
 
-    def code_state_if():
-        actions.user.insert_between("if (", ") ")
-
-    def code_state_else_if():
-        actions.user.insert_between("else if (", ") ")
-
-    def code_state_else():
-        actions.insert("else ")
-        actions.key("enter")
-
-    def code_state_switch():
-        actions.user.insert_between("switch (", ") ")
-
-    def code_state_case():
-        actions.insert("case \nbreak;")
-        actions.edit.up()
-
-    def code_state_for():
-        actions.user.insert_between("for (", ") ")
-
-    def code_state_while():
-        actions.user.insert_between("while (", ") ")
-
-    def code_break():
-        actions.insert("break;")
-
-    def code_next():
-        actions.insert("continue;")
-
     def code_insert_true():
         actions.insert("true")
 
     def code_insert_false():
         actions.insert("false")
-
-    def code_define_class():
-        actions.insert("class ")
-
-    def code_import():
-        actions.insert("import ")
-
-    def code_state_return():
-        actions.insert("return ")
-
-    def code_comment_line_prefix():
-        actions.insert("// ")
 
     def code_insert_function(text: str, selection: str):
         text += f"({selection or ''})"

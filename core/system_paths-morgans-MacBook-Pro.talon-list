@@ -1,0 +1,29 @@
+list: user.system_paths
+hostname: Morgans-MacBook-Pro
+-
+user: /Users/morganslater
+desktop: /Users/morganslater/Desktop
+desk: /Users/morganslater/Desktop
+documents: /Users/morganslater/Documents
+docks: /Users/morganslater/Documents
+downloads: /Users/morganslater/Downloads
+music: /Users/morganslater/Music
+pictures: /Users/morganslater/Pictures
+videos: /Users/morganslater/Videos
+talon home: /Users/morganslater/.talon
+talon recordings: /Users/morganslater/.talon/recordings
+talon user: /Users/morganslater/.talon/user
+talon community: /Users/morganslater/.talon/user/community
+ms talon: /Users/morganslater/.talon/user/ms_talon
+home: /Users/morganslater
+source code: /Users/morganslater/SourceCode
+
+capture custom scripts: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-capture-custom-scripts
+capture scripts: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-capture-scripts
+capture sink: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-capture-sync
+orchestration: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-orchestration-api
+provisioning: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-provisioning-api
+whatsapp listener: /Users/morganslater/SourceCode/mirrorweb/mobicomms-whatsapp-listener
+mobi comms terraform: /Users/morganslater/SourceCode/mirrorweb/terraform-mw-mobicomms
+trusted contacts: /Users/morganslater/SourceCode/mirrorweb/trusted-contacts
+trusted contacts API: /Users/morganslater/SourceCode/mirrorweb/trusted-contacts-api

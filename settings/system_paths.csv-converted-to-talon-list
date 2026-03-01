@@ -1,0 +1,12 @@
+Path,Spoken
+/Users/morgan/SourceCode, source code
+/Users/morgan/SourceCode/go/src/gitlab.com/learnd/platform, platform
+/Users/morgan/SourceCode/go/src/gitlab.com/learnd/platform/database, database
+/Users/morgan/SourceCode/go/src/gitlab.com/learnd/platform/agent, agent
+/Users/morgan/SourceCode/go/src/gitlab.com/learnd/platform/service, service
+/Users/morgan/SourceCode/go/src/gitlab.com/learnd/platform/local-infra, local infer
+/Users/morgan/SourceCode/go/src/gitlab.com/learnd/frontend/mobile-app-expo, mobile app expo
+/Users/morgan/SourceCode/go/src/gitlab.com/learnd/frontend/portal, portal
+/Users/morgan/SourceCode/go/src/github.com/slatermorgan/machinesdream, machine dreams
+/Users/morgan/SourceCode/go/src/github.com/neuraldream, neural dream
+/private/etc/, host file
