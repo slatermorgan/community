@@ -1,5 +1,5 @@
 list: user.system_paths
-hostname: Morgans-MacBook-Pro
+hostname: /^(?:ip-192-168-.*|morgans-macbook-pro)$/i
 -
 user: /Users/morganslater
 desktop: /Users/morganslater/Desktop
@@ -27,3 +27,7 @@ whatsapp listener: /Users/morganslater/SourceCode/mirrorweb/mobicomms-whatsapp-l
 mobi comms terraform: /Users/morganslater/SourceCode/mirrorweb/terraform-mw-mobicomms
 trusted contacts: /Users/morganslater/SourceCode/mirrorweb/trusted-contacts
 trusted contacts API: /Users/morganslater/SourceCode/mirrorweb/trusted-contacts-api
+chat lifts: /Users/morganslater/SourceCode/slatermorgan/platform
+chat lifts front end: /Users/morganslater/SourceCode/slatermorgan/platform/frontend
+chat lifts back end: /Users/morganslater/SourceCode/slatermorgan/platform/backend
+
