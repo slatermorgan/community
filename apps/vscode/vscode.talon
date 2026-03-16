@@ -310,8 +310,22 @@ preview markdown: user.vscode("markdown.showPreview")
 dont save: key(cmd-d)
 
 # Cursor
-assist close: user.vscode("composer.closeComposerTab")
-bar assist: user.vscode("workbench.panel.aichat.3705ffb5-a408-4d5d-9ca8-34592fe29549")
 
-assist new: user.vscode("composer.newAgentChat")
-assist again: user.vscode("composer.startComposerPrompt")
+vibe ask:
+    user.vscode("composerMode.chat")
+vibe chat:
+    user.vscode("composerMode.chat")
+vibe agent:
+    user.vscode("composerMode.agent")
+vibe plan:
+    user.vscode("composerMode.plan")
+vibe debug:
+    user.vscode("composerMode.debug")
+vibe close:
+    user.vscode("composer.closeComposerTab")
+vibe model:
+    user.vscode("composer.cycleModelParameter")
+vibe stop:
+    user.vscode("composer.cancelChat")
+vibe focus:
+    user.vscode("composer.focusComposer")
