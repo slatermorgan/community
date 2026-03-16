@@ -6,3 +6,4 @@ app: Notion
     insert(user.text)
 
 bar switch: key("cmd-\\")
+code that: key("cmd-e")
