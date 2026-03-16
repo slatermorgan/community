@@ -3,6 +3,8 @@ hostname: DESKTOP-98PNFF6
 -
 source code: C:\Users\slate\Documents\go
 platform: C:\Users\slate\Documents\go\learnd\platform
+learned other: C:\Users\slate\Documents\go\learnd\other
+learned: C:\Users\slate\Documents\go\learnd
 database: C:\Users\slate\Documents\go\learnd\platform\database
 agent: C:\Users\slate\Documents\go\learnd\platform\agent
 local infer: \Users\slate\Documents\go\learnd\platform\local-infra\
