@@ -21,6 +21,8 @@ grab left: key(shift-up)
 grab right: key(shift-down)
 add line: key(shift-enter)
 
+(chuck | clear | delete) word: key(alt-backspace)
+
 (slack | lack) (slap | slaw | slapper): edit.line_insert_down()
 (element | bit) [next]: key(tab)
 (element | bit) (previous | last): key(shift-tab)
