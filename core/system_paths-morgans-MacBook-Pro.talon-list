@@ -18,13 +18,21 @@ ms talon: /Users/morganslater/.talon/user/ms_talon
 home: /Users/morganslater
 source code: /Users/morganslater/SourceCode
 
+mobi comms automation: /Users/morganslater/SourceCode/mirrorweb/mobicomms-automation
 capture custom scripts: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-capture-custom-scripts
 capture scripts: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-capture-scripts
 capture sink: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-capture-sync
+capture sync: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-capture-sync
 orchestration: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-orchestration-api
+imessage orchestration API: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-orchestration-api
 provisioning: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-provisioning-api
+mobi comms otp service: /Users/morganslater/SourceCode/mirrorweb/mobicomms-otp-service
 whatsapp listener: /Users/morganslater/SourceCode/mirrorweb/mobicomms-whatsapp-listener
 mobi comms terraform: /Users/morganslater/SourceCode/mirrorweb/terraform-mw-mobicomms
+mobi comms tfc terraform: /Users/morganslater/SourceCode/mirrorweb/terraform-mw-tfc
+okeanos: /Users/morganslater/SourceCode/mirrorweb/okeanos
+platform connection manager: /Users/morganslater/SourceCode/mirrorweb/platform-connection-manager
+connection manager: /Users/morganslater/SourceCode/mirrorweb/platform-connection-manager
 trusted contacts: /Users/morganslater/SourceCode/mirrorweb/trusted-contacts
 trusted contacts API: /Users/morganslater/SourceCode/mirrorweb/trusted-contacts-api
 chat lifts: /Users/morganslater/SourceCode/slatermorgan/platform
