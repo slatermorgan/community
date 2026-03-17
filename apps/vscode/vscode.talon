@@ -305,9 +305,11 @@ cell run above: user.vscode("notebook.cell.executeCellsAbove")
 cell run: user.vscode("notebook.cell.execute")
 
 install local: user.vscode("workbench.extensions.action.installVSIX")
-preview markdown: user.vscode("markdown.showPreview")
+markdown preview: user.vscode("markdown.showPreview")
 
 dont save: key(cmd-d)
+
+plant preview: key(alt-d)
 
 # Cursor
 
