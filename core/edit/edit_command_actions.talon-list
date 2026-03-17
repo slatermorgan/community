@@ -11,3 +11,4 @@ paste: pasteFromClipboard
 paste to: pasteFromClipboard
 
 clear: delete
+chuck: delete
