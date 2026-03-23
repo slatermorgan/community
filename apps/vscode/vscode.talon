@@ -344,3 +344,5 @@ plant preview: key(alt-d)
     mode.disable("dictation")
     mode.enable("command")
     key(esc)
+vibe selection:
+    key(cmd-shift-l)
