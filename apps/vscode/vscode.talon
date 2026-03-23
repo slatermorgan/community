@@ -312,22 +312,35 @@ dont save: key(cmd-d)
 plant preview: key(alt-d)
 
 # Cursor
-
-vibe ask:
+^vibe ask$:
     user.vscode("composerMode.chat")
-vibe chat:
+^vibe chat$:
     user.vscode("composerMode.chat")
-vibe agent:
+^vibe agent$:
     user.vscode("composerMode.agent")
-vibe plan:
+^vibe plan$:
     user.vscode("composerMode.plan")
-vibe debug:
+^vibe debug$:
     user.vscode("composerMode.debug")
-vibe close:
+^vibe close$:
     user.vscode("composer.closeComposerTab")
-vibe model:
+^vibe model$:
     user.vscode("composer.cycleModelParameter")
-vibe stop:
+^vibe stop$:
     user.vscode("composer.cancelChat")
-vibe focus:
+^vibe focus$:
     user.vscode("composer.focusComposer")
+^vibe accept$:
+    user.vscode("composer.acceptComposerStep")
+^vibe next$:
+    user.vscode("composer.selectNextComposer")
+^vibe previous$:
+    user.vscode("composer.selectPreviousComposer")
+^vibe on$:
+    user.vscode("composer.startComposerPrompt")
+    mode.disable("command")
+    mode.enable("dictation")
+^vibe (clear | off | stop)$:
+    mode.disable("dictation")
+    mode.enable("command")
+    key(esc)
