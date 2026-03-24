@@ -27,3 +27,8 @@ show downloads: browser.show_downloads()
 show extensions: browser.show_extensions()
 show history: browser.show_history()
 show cache: browser.show_clear_cache()
+
+dot com: ".com"
+dot co dot uk: ".co.uk"
+proton dot me: "@proton.me"
+hot mail dot com: "@hotmail.com"
