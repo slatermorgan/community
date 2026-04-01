@@ -1,6 +1,14 @@
 list: user.vocabulary
 -
 A P I: API
+
+N map: nmap
+under documented: under-documented
+nmap
+admin
+Cisco
+Citrix
+VPN
 DNS
 Github
 Gmail

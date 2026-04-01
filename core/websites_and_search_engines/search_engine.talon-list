@@ -1,6 +1,7 @@
 list: user.search_engine
 -
-amazon: https://smile.amazon.co.uk/s/?field-keywords=%s
+
+amazon: https://www.amazon.com/s/?field-keywords=%s
 google: https://www.google.com/search?q=%s
 map: https://maps.google.com/maps?q=%s
 scholar: https://scholar.google.com/scholar?q=%s
