@@ -20,5 +20,5 @@ tab previous: key(cmd-pageup)
 tab next: key(cmd-pagedown)
 tab next: key(cmd-shift-pageup)
 tab previous: key(cmd-shift-pagedown)
-tab close all: key(cmd-shift-w)
+close all tabs: key(cmd-shift-w)
 
