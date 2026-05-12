@@ -1,4 +1,3 @@
-#custom vscode commands go here
 app: vscode
 -
 
@@ -346,3 +345,15 @@ plant preview: key(alt-d)
     key(esc)
 vibe selection:
     key(cmd-shift-l)
+
+# Codex
+codex full:
+    user.run_rpc_command("chatgpt.openSidebar")
+    user.run_rpc_command("workbench.action.maximizeAuxiliaryBar")
+codex hide:
+    user.run_rpc_command("workbench.action.closeAuxiliaryBar")
+codex add file:
+    user.run_rpc_command("chatgpt.addFileToThread")
+codex new:
+    user.run_rpc_command("chatgpt.newChat")
+
