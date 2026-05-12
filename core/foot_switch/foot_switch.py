@@ -16,6 +16,9 @@ current_state = [UP, UP, UP, UP]
 last_state = [UP, UP, UP, UP]
 timestamps = [0.0, 0.0, 0.0, 0.0]
 
+# Left pedal: restore speech.enable on release only if speech was on before press.
+_left_foot_restore_speech = False
+
 
 def on_interval():
     for key in range(4):
@@ -92,12 +95,18 @@ class Actions:
             actions.user.mouse_scroll_stop()
 
     def foot_switch_left_down():
-        """Foot switch button left:down"""
-        actions.tracking.control_toggle(True)
+        """Foot switch button left:down — Talon sleeps and Fn is held for the OS."""
+        global _left_foot_restore_speech
+        _left_foot_restore_speech = actions.speech.enabled()
+        actions.key("fn:down")
+        actions.speech.disable()
 
     def foot_switch_left_up(held: bool):
         """Foot switch button left:up"""
-        actions.tracking.control_toggle(False)
+        global _left_foot_restore_speech
+        actions.key("fn:up")
+        if _left_foot_restore_speech:
+            actions.speech.enable()
 
     def foot_switch_right_down():
         """Foot switch button right:down"""
