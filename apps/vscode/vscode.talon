@@ -357,3 +357,4 @@ codex add file:
 codex new:
     user.run_rpc_command("chatgpt.newChat")
 
+send: key(cmd-enter)
