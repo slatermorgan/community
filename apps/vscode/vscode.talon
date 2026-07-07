@@ -358,3 +358,18 @@ codex new:
     user.run_rpc_command("chatgpt.newChat")
 
 send: key(cmd-enter)
+
+source list: user.vscode("workbench.view.scm") #"bar source" also works
+source open: user.vscode("list.select")
+source next:
+    user.vscode("workbench.view.scm")
+    sleep(50ms)
+    user.vscode("list.focusDown")
+    sleep(50ms)
+    user.vscode("list.select")
+source (last | previous):
+    user.vscode("workbench.view.scm")
+    sleep(50ms)
+    user.vscode("list.focusUp")
+    sleep(50ms)
+    user.vscode("list.select")
