@@ -20,3 +20,5 @@ copy paste:
     edit.copy()
     sleep(50ms)
     edit.paste()
+
+git config pull rebase false: git config pull.rebase false
