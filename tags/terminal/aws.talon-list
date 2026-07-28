@@ -1,0 +1,5 @@
+list: user.aws
+-
+
+# Add your AWS CLI profile names below
+default
