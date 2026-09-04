@@ -12,6 +12,3 @@ cursor here:
 
 cursor agent: "cursor-agent "
 
-claude:
-    insert("claude")
-    key("enter")

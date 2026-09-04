@@ -27,6 +27,7 @@ orchestration: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-orche
 imessage orchestration API: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-orchestration-api
 provisioning: /Users/morganslater/SourceCode/mirrorweb/mobicomms-imessage-provisioning-api
 mobi comms otp service: /Users/morganslater/SourceCode/mirrorweb/mobicomms-otp-service
+mobi comms support: /Users/morganslater/SourceCode/mirrorweb/mobicomms-support
 whatsapp listener: /Users/morganslater/SourceCode/mirrorweb/mobicomms-whatsapp-listener
 mobi comms terraform: /Users/morganslater/SourceCode/mirrorweb/terraform-mw-mobicomms
 mobi comms tfc terraform: /Users/morganslater/SourceCode/mirrorweb/terraform-mw-tfc
@@ -39,7 +40,10 @@ chat lifts: /Users/morganslater/SourceCode/slatermorgan/platform
 chat lifts front end: /Users/morganslater/SourceCode/slatermorgan/platform/frontend
 chat lifts back end: /Users/morganslater/SourceCode/slatermorgan/platform/backend
 aletheia: /Users/morganslater/SourceCode/mirrorweb/aletheia
+cerberus: /Users/morganslater/SourceCode/mirrorweb/cerberus
+connector pipeline: /Users/morganslater/SourceCode/mirrorweb/connector-pipeline
 hephaestus: /Users/morganslater/SourceCode/mirrorweb/hephaestus
+hephaestus manager: /Users/morganslater/SourceCode/mirrorweb/hephaestus-manager
 insight platform: /Users/morganslater/SourceCode/mirrorweb/insight-platform
 mercury: /Users/morganslater/SourceCode/mirrorweb/mercury
 microsoft teams capture: /Users/morganslater/SourceCode/mirrorweb/microsoft-teams-capture
