@@ -164,6 +164,7 @@ go last mark: user.vscode("bookmarks.jumpToPrevious")
 
 close other tabs: user.vscode("workbench.action.closeOtherEditors")
 close all tabs: user.vscode("workbench.action.closeAllEditors")
+close saved tabs: user.vscode("workbench.action.closeUnmodifiedEditors")
 close tabs way right: user.vscode("workbench.action.closeEditorsToTheRight")
 close tabs way left: user.vscode("workbench.action.closeEditorsToTheLeft")
 
