@@ -131,7 +131,7 @@ format selection: user.vscode("editor.action.formatSelection")
 imports fix: user.vscode("editor.action.organizeImports")
 problem next: user.vscode("editor.action.marker.nextInFiles")
 problem last: user.vscode("editor.action.marker.prevInFiles")
-problem fix: user.vscode("problems.action.showQuickFixes")
+problem fix: user.vscode("editor.action.quickFix")
 rename that: user.vscode("editor.action.rename")
 refactor that: user.vscode("editor.action.refactor")
 whitespace trim: user.vscode("editor.action.trimTrailingWhitespace")
@@ -155,9 +155,6 @@ go edit: user.vscode("workbench.action.navigateToLastEditLocation")
 
 # Bookmarks. Requires Bookmarks plugin
 bar marks: user.vscode("workbench.view.extension.bookmarks")
-go marks:
-    user.deprecate_command("2023-06-06", "go marks", "bar marks")
-    user.vscode("workbench.view.extension.bookmarks")
 toggle mark: user.vscode("bookmarks.toggle")
 go next mark: user.vscode("bookmarks.jumpToNext")
 go last mark: user.vscode("bookmarks.jumpToPrevious")
