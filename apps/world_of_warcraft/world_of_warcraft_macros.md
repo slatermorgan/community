@@ -1,5 +1,7 @@
 # World of Warcraft: macros and keybinds
 
+> The `TalonWoW` addon (see `ADDON.md`) creates all of these macros and binds the keys with `/talon setup`. This file is the manual route, and a reference for what the addon does.
+
 Talon only presses keys. Anything WoW can't do from a default key is a **macro** that you bind to a key. The keys live in one table, `WOW_KEYS` in `world_of_warcraft.py`. Change a key there and in game together.
 
 **Binding a macro to a key:** `/macro` → New → paste the text → drag the macro onto an action bar slot (a hidden bar works) → Key Bindings → bind that slot's button to the key below.
@@ -17,7 +19,7 @@ Tip: if `ctrl-shift-F1..F12` is awkward to bind, any key combination works. Upda
 | `target trade` | `ctrl-shift-f5` | TalonTrade | `/trade` |
 | `camera left` | `ctrl-shift-f6` | TalonCamLeft | `/run FlipCameraYaw(90)` (see note 2) |
 | `camera right` | `ctrl-shift-f7` | TalonCamRight | `/run FlipCameraYaw(-90)` (see note 2) |
-| `camera walk` | `ctrl-shift-f8` | TalonCamWalk | see note 3 |
+| `camera walk toggle` | `f8` (held) | none | not a macro: bind `f8` to **Move and Steer** (see note 3) |
 | `spell stop` | `ctrl-shift-f9` | TalonStopCast | `/stopcasting` |
 | `mount toggle` | `ctrl-shift-f10` | TalonMount | `/run C_MountJournal.SummonByID(0)` (retail; see note 4) |
 
@@ -25,7 +27,7 @@ Tip: if `ctrl-shift-F1..F12` is awkward to bind, any key combination works. Upda
 
 1. **`npc cycle`.** `/targetfriend` cycles "friendly entities", and the wiki doesn't say whether that includes NPCs. Test it in game. If it only picks players, or picks NPCs you don't want, say so and we'll try a different approach.
 2. **Camera.** `FlipCameraYaw(degrees)` rotates the camera about the Z axis by an exact number of degrees. I haven't been able to confirm which direction is positive, so if "camera left" turns right, swap the signs. If the game refuses the script, we'll fall back to a mouse drag. The first run of any `/run` macro may show a "custom script" warning. Allow it.
-3. **`camera walk`.** You asked for this to be macro-only. WoW has no single command for "face the camera and walk". Suggested macro for retail: `/run MoveForwardStart()`, bound alongside the "Turn to camera" behaviour, which a right-click does by default. This one is the least settled, so treat it as a starting point and tell me what works.
+3. **`camera walk toggle`.** Holds `f8`, which should be bound to Move and Steer (WoW's "both mouse buttons" run). That runs toward where the camera faces. Say it again to stop. A `/run MoveForwardStart()` macro would not work, because movement functions are protected and addon or macro script code can't call them.
 4. **`mount toggle`.** Retail only. `C_MountJournal.SummonByID(0)` summons a random favorite mount. On Classic clients use `/cast <your mount name>` instead.
 
 ## Plain keybindings (no macro)

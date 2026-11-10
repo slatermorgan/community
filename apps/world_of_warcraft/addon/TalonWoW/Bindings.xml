@@ -1,0 +1,11 @@
+<Bindings>
+    <Binding name="CLICK TalonEnemy:LeftButton" header="TALON" category="ADDONS"></Binding>
+    <Binding name="CLICK TalonFriend:LeftButton" category="ADDONS"></Binding>
+    <Binding name="CLICK TalonNPC:LeftButton" category="ADDONS"></Binding>
+    <Binding name="CLICK TalonFollow:LeftButton" category="ADDONS"></Binding>
+    <Binding name="CLICK TalonTrade:LeftButton" category="ADDONS"></Binding>
+    <Binding name="CLICK TalonCamLeft:LeftButton" category="ADDONS"></Binding>
+    <Binding name="CLICK TalonCamRight:LeftButton" category="ADDONS"></Binding>
+    <Binding name="CLICK TalonStopCast:LeftButton" category="ADDONS"></Binding>
+    <Binding name="CLICK TalonMount:LeftButton" category="ADDONS"></Binding>
+</Bindings>

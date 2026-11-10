@@ -13,7 +13,8 @@ mount toggle: user.wow_press("mount_toggle")
 # Camera
 camera left: user.wow_press("camera_left")
 camera right: user.wow_press("camera_right")
-camera walk: user.wow_press("camera_walk")
+# F8 is bound to Move and Steer (hold = run toward where the camera faces)
+camera walk toggle: user.wow_toggle_key("f8")
 camera zoom in: user.wow_camera_zoom(1)
 camera zoom out: user.wow_camera_zoom(-1)
 

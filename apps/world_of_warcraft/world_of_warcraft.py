@@ -1,8 +1,9 @@
 """World of Warcraft (retail, Classic, Forever, ...) voice commands.
 
 Talon never talks to the game directly. Everything is either a plain key press
-or a key that you have bound, in game, to a macro. See
-world_of_warcraft_macros.md for every macro and the key it must be bound to.
+or a key bound in game to a macro. The TalonWoW addon (addon/TalonWoW, see
+ADDON.md) creates those macros and binds the keys below with /talon setup.
+world_of_warcraft_macros.md lists the same macros for doing it by hand.
 """
 
 from talon import Module, actions, app
@@ -46,7 +47,6 @@ WOW_KEYS = {
     "target_trade": "ctrl-shift-f5",
     "camera_left": "ctrl-shift-f6",
     "camera_right": "ctrl-shift-f7",
-    "camera_walk": "ctrl-shift-f8",
     "stop_casting": "ctrl-shift-f9",
     "mount_toggle": "ctrl-shift-f10",
     # --- plain keybindings (Blizzard defaults unless noted) ---
