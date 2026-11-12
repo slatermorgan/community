@@ -36,10 +36,12 @@ Set these under Options → Key Bindings if they aren't already bound.
 
 | Voice command | Key | WoW binding |
 |---|---|---|
-| `walk toggle` | `w` (held) | Move Forward |
+| `walk toggle` / `run toggle` | `num_lock` | Toggle Autorun (default) |
 | `backwards toggle` | `s` (held) | Move Backward |
+| `back up` | `s` (held 2 s) | Move Backward |
 | `strafe left/right toggle` | `a` / `d` (held) | Strafe Left / Right |
 | `player jump` | `space` | Jump |
+| `look left` / `look right` | `left` / `right` (held about 0.25 s) | Turn Left / Turn Right (default) |
 | `move auto` | `ctrl-shift-f11` | Toggle Autorun (no default key on Mac) |
 | `party cycle` | `ctrl-tab` | Target Nearest Friend (default) |
 | `target interact` | `ctrl-shift-f12` | Interact With Target |
@@ -53,7 +55,12 @@ Set these under Options → Key Bindings if they aren't already bound.
 | `map open` | `m` | World Map (default) |
 | `bags open` | `b` | Open All Bags (default) |
 | `character open` | `c` | Character Info (default) |
+| `quest open` | `l` | Quest Log (default) |
+| `professions open` | `k` | Professions (default) |
+| `talents open` | `n` | Talents (default on retail; clashes with `bar previous`) |
+| `spellbook open` | `p` | Spellbook & Abilities (default) |
 | `chat open` | `enter` | Chat (default) |
+| `spell hold <modifiers> <number>` / `spell release` | `1`..`0` held until released | needs Options > Gameplay > Combat > **Press and Hold Casting** |
 | `spell <modifiers> <number>` | `1`..`0` plus modifiers | Action Bar 1 buttons 1-10 |
 
 `camera zoom in/out` scrolls the mouse wheel over the game window, which needs no binding.
