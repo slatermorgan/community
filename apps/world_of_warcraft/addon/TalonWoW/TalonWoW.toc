@@ -1,4 +1,4 @@
-## Interface: 120105, 120100, 120000, 110207, 50504, 40402, 30403, 20505, 11509
+## Interface: 160001, 16001, 120105, 120100, 120000, 110207, 50504, 40402, 30403, 20505, 11509
 ## Title: Talon Voice Commands
 ## Notes: Secure macro buttons and key bindings for Talon voice control (see ADDON.md).
 ## Author: Morgan Slater

@@ -35,6 +35,12 @@ mod.apps.world_of_warcraft = r"""
 os: linux
 and app.exe: /wow/i
 """
+# Steam/Proton: the app reports as steam_app_<id> running wine64-preloader, so
+# neither name nor exe mentions WoW. The window title is the reliable signal.
+mod.apps.world_of_warcraft = r"""
+os: linux
+and win.title: /^World of Warcraft/
+"""
 
 # Every key Talon presses that is not a movement key. Change a key here and in
 # the matching WoW keybinding / macro slot (see the .md file).
@@ -84,7 +90,8 @@ def release_all():
 
 def _on_app_deactivate(application):
     # Never leave W stuck down when alt-tabbing out of the game.
-    if held_keys and "warcraft" in (application.name or "").lower():
+    name = (application.name or "").lower()
+    if held_keys and ("warcraft" in name or name.startswith("steam_app_")):
         release_all()
 
 
