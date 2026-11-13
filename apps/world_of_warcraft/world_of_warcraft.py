@@ -60,10 +60,9 @@ WOW_KEYS = {
     "camera_right": "ctrl-shift-f7",
     "stop_casting": "ctrl-shift-f9",
     "mount_toggle": "ctrl-shift-f10",
+    "player_sit": "f16",  # TalonSit macro (/sit); F16 is unused by default
     # --- plain keybindings (Blizzard defaults unless noted) ---
     "cycle_party": "ctrl-tab",
-    "walk_toggle": "num_lock",  # default Toggle Autorun key
-    "autorun": "ctrl-shift-f11",  # no default key on Mac: bind "Toggle Autorun"
     "interact": "ctrl-shift-f12",  # not bound by default: bind "Interact With Target"
     "target_self": "f1",
     "target_last": "g",
@@ -180,6 +179,12 @@ class Actions:
         chord = f"{modifiers}-{number_key}" if modifiers else number_key
         actions.key(f"{chord}:down")
         held_spell.append(chord)
+
+    def wow_stop_all():
+        """Stop everything: held movement keys (W, S, A, D), held spell and current cast"""
+        release_all()
+        release_spell()
+        actions.key(WOW_KEYS["stop_casting"])
 
     def wow_spell_release():
         """Release the held spell key"""

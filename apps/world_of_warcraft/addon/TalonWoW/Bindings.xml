@@ -8,4 +8,5 @@
     <Binding name="CLICK TalonCamRight:LeftButton" category="ADDONS"></Binding>
     <Binding name="CLICK TalonStopCast:LeftButton" category="ADDONS"></Binding>
     <Binding name="CLICK TalonMount:LeftButton" category="ADDONS"></Binding>
+    <Binding name="CLICK TalonSit:LeftButton" category="ADDONS"></Binding>
 </Bindings>

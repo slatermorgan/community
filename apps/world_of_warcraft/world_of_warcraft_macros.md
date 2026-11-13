@@ -36,13 +36,11 @@ Set these under Options → Key Bindings if they aren't already bound.
 
 | Voice command | Key | WoW binding |
 |---|---|---|
-| `walk toggle` / `run toggle` | `num_lock` | Toggle Autorun (default) |
 | `backwards toggle` | `s` (held) | Move Backward |
 | `back up` | `s` (held 2 s) | Move Backward |
 | `strafe left/right toggle` | `a` / `d` (held) | Strafe Left / Right |
 | `player jump` | `space` | Jump |
 | `look left` / `look right` | `left` / `right` (held about 0.25 s) | Turn Left / Turn Right (default) |
-| `move auto` | `ctrl-shift-f11` | Toggle Autorun (no default key on Mac) |
 | `party cycle` | `ctrl-tab` | Target Nearest Friend (default) |
 | `target interact` | `ctrl-shift-f12` | Interact With Target |
 | `target self` | `f1` | Target Self (default) |

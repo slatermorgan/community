@@ -1,13 +1,15 @@
 app: world_of_warcraft
 -
+tag(): user.unprefixed_numbers
 # Movement. W/S/A/D are held with key(x:down) until toggled off.
-(walk | run) toggle: user.wow_press("walk_toggle")
+(walk | run) toggle: user.wow_toggle_key("w")
 backwards toggle: user.wow_toggle_key("s")
 strafe left toggle: user.wow_toggle_key("a")
 strafe right toggle: user.wow_toggle_key("d")
 back up: user.wow_back_up()
 move stop: user.wow_stop_moving()
-move auto: user.wow_press("autorun")
+move auto: user.wow_toggle_key("w")
+stop: user.wow_stop_all()
 player jump: key(space)
 mount toggle: user.wow_press("mount_toggle")
 
@@ -22,9 +24,10 @@ look right: user.wow_look("right")
 camera zoom in: user.wow_camera_zoom(1)
 camera zoom out: user.wow_camera_zoom(-1)
 
-# Spells: "spell 1", "spell shift 3", "spell control alt 5". Zero is the 0 key.
-spell <user.number_key>: user.wow_spell("", number_key)
-spell <user.modifiers> <user.number_key>: user.wow_spell(modifiers, number_key)
+# Spells: say the bare key from the community files ("1".."9", "harp", "sit",
+# "jury", "yank"), bound to action bar slots in game. "player sit" presses F16,
+# bound to the TalonSit macro (/sit).
+player sit: user.wow_press("player_sit")
 # Hold a spell key so it recasts as long as it's held (needs "Press and Hold
 # Casting" on). "spell release" lets go; "spell stop" also stops the cast.
 spell hold <user.number_key>: user.wow_spell_hold("", number_key)
